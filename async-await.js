@@ -37,7 +37,7 @@ const doChores = async () => {
     const getReward = new Promise((resolve, reject) => {
     
         setTimeout(() => {
-            let ellegible = true;
+            let ellegible = false;
             if (ellegible) {
                 resolve('Got a reward!');
             } else {
@@ -55,15 +55,35 @@ const doChores = async () => {
     
     */
 
-    let cleanRoom = await willCleanRoom;
-    let removedGarbage = await removeGarbage;
-    let gotReward = await getReward;
 
-    console.log(cleanRoom, removedGarbage, gotReward);
+    try {
+        let cleanRoom = await willCleanRoom;
+        console.log(cleanRoom);
+    } catch(err) {
+        console.log(err);
+        return;
+    }
+
+    try {
+        let removedGarbage = await removeGarbage;
+        console.log(removedGarbage);
+    } catch(err) {
+        console.log(err);
+        return;
+    }
+
+    try {
+        let gotReward = await getReward;
+        console.log(gotReward);
+
+    } catch (err) {
+        console.log(err);
+    }
 
 }
 
 doChores();
+
 
 
 
