@@ -17,4 +17,10 @@ Promises are event based, the callbacks passed into then, catch and finally will
 promise returns.
 */
 
-willCleanRoom.then().catch().finally()
+willCleanRoom.then((resolveStatus) => {
+    console.log(resolveStatus);
+}).catch((rejectStatus) => {
+    console.log(rejectStatus);
+}).finally(() => {
+    console.log('I run in all types of event cases')
+})
