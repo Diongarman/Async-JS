@@ -30,6 +30,8 @@ const getReward = new Promise((resolve, reject) => {
     }
 });
 
-Promise.all([willCleanRoom, removeGarbage, getReward]).then((messages) => {
+Promise.race([willCleanRoom, removeGarbage, getReward]).then((messages) => {
+    console.log(messages)
+}).catch(messages => {
     console.log(messages)
 });
