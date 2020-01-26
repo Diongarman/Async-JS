@@ -1,15 +1,33 @@
 const willCleanRoom = new Promise((resolve, reject) => {
 
-    setTimeout(
-        () => {
-            let cleanRoom = true;
+
+            let cleanRoom = false;
             if (cleanRoom) {
                 resolve('room is clean');
             } else {
                 reject('room is not clean');
             }
-        } ,3000);
+        } 
 
+);
+
+
+const removeGarbage = new Promise((resolve, reject) => {
+    let garbageRemoved = false;
+    if (garbageRemoved) {
+        resolve('Rubbish removed');
+    } else {
+        reject('Rubbish not removed');
+    }
+});
+
+const getReward = new Promise((resolve, reject) => {
+    let ellegible = false;
+    if (ellegible) {
+        resolve('Got a reward!');
+    } else {
+        reject(':( no reward for you');
+    }
 });
 
 /*
@@ -19,8 +37,15 @@ promise returns.
 
 willCleanRoom.then((resolveStatus) => {
     console.log(resolveStatus);
-}).catch((rejectStatus) => {
-    console.log(rejectStatus);
-}).finally(() => {
-    console.log('I run in all types of event cases')
-})
+    return removeGarbage;
+    })
+    .then((resolveStatus2) => {
+            console.log(resolveStatus2);
+            return getReward;
+        })
+    .then((resolveStatus3) => {
+            console.log(resolveStatus3);
+        })
+    .catch((rejectStatus) => {
+        console.log(rejectStatus);
+        })

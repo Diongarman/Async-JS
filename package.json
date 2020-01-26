@@ -1,5 +1,5 @@
 {
-  "name": "async-js",
+  "name": "async",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diongarman/Async-JS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Diongarman/Async-JS/issues"
+  },
+  "homepage": "https://github.com/Diongarman/Async-JS#readme"
 }
