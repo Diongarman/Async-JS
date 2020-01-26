@@ -1,7 +1,7 @@
 const willCleanRoom = new Promise((resolve, reject) => {
 
 
-            let cleanRoom = false;
+            let cleanRoom = true;
             if (cleanRoom) {
                 resolve('room is clean');
             } else {
@@ -13,7 +13,7 @@ const willCleanRoom = new Promise((resolve, reject) => {
 
 
 const removeGarbage = new Promise((resolve, reject) => {
-    let garbageRemoved = false;
+    let garbageRemoved = true;
     if (garbageRemoved) {
         resolve('Rubbish removed');
     } else {
@@ -22,7 +22,7 @@ const removeGarbage = new Promise((resolve, reject) => {
 });
 
 const getReward = new Promise((resolve, reject) => {
-    let ellegible = false;
+    let ellegible = true;
     if (ellegible) {
         resolve('Got a reward!');
     } else {
@@ -30,22 +30,6 @@ const getReward = new Promise((resolve, reject) => {
     }
 });
 
-/*
-Promises are event based, the callbacks passed into then, catch and finally will run when the
-promise returns.
-*/
-
-willCleanRoom.then((resolveStatus) => {
-    console.log(resolveStatus);
-    return removeGarbage;
-    })
-    .then((resolveStatus2) => {
-            console.log(resolveStatus2);
-            return getReward;
-        })
-    .then((resolveStatus3) => {
-            console.log(resolveStatus3);
-        })
-    .catch((rejectStatus) => {
-        console.log(rejectStatus);
-        })
+Promise.all([willCleanRoom, removeGarbage, getReward]).then((messages) => {
+    console.log(messages)
+});
